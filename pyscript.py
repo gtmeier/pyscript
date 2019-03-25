@@ -4,13 +4,15 @@
 # George Meier
 # CS372 Python to PostScript
 
+
+from abc import ABC, abstractmethod
+
+
+# TODO check correct when done with project
 # shape     = basic | compound
 # basic     = polygon | RECTANGLE | SPACER | CIRCLE
 # polygon   = POLYGON | SQUARE | TRIANGLE
 # compound  = ROTATED | SCALED | LAYERED | VERTICAL | HORIZONTAL
-
-
-from abc import ABC, abstractmethod
 
 
 class Shape(ABC):
@@ -26,7 +28,7 @@ class Circle(Shape):
         self._radius = radius
 
     def export_postscript(self):
-        # TODO showpage here for testing purposes
+        # TODO refactor, DRY showpage
         return ("newpath \n0 0 "
                 + str(self._radius)
                 + " 0 360 arc stroke \nshowpage")
@@ -39,7 +41,7 @@ class Rectangle(Shape):
         self._height = height
 
     def export_postscript(self):
-        # TODO refactor
+        # TODO refactor, DRY showpage
         return ("newpath 0 0 moveto\n"
                 + str(self._width) + " 0 lineto\n"
                 + str(self._width) + " " + str(self._height) + " lineto\n"
@@ -51,13 +53,16 @@ class Rectangle(Shape):
 
 def export_postscript(shape, filename):
     postscript_code = shape.export_postscript()
-    # append showpage to string
+    # TODO append showpage
 
+    # TODO temp comment
     # write string to file -- "context manager" takes care of opening and
     # closing
     with open(filename, "w+") as output_file:
         output_file.write(postscript_code)
 
+
+# TODO remove main when done with project
 
 # if name is main, code is executed, otherwise its'being imported as module
 if __name__ == "__main__":
