@@ -27,7 +27,9 @@ class Circle(Shape):
 
     def export_postscript(self):
         # TODO showpage here for testing purposes
-        return "newpath \n0 0 " + str(self._radius) + " 0 360 arc stroke \nshowpage"
+        return ("newpath \n0 0 "
+                + str(self._radius)
+                + " 0 360 arc stroke \nshowpage")
 
 
 class Rectangle(Shape):
@@ -51,7 +53,8 @@ def export_postscript(shape, filename):
     postscript_code = shape.export_postscript()
     # append showpage to string
 
-    # write string to file -- "context manager" takes care of opening and closing
+    # write string to file -- "context manager" takes care of opening and
+    # closing
     with open(filename, "w+") as output_file:
         output_file.write(postscript_code)
 
