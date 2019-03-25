@@ -8,19 +8,6 @@
 # basic     = polygon | RECTANGLE | SPACER | CIRCLE
 # polygon   = POLYGON | SQUARE | TRIANGLE
 # compound  = ROTATED | SCALED | LAYERED | VERTICAL | HORIZONTAL
-#
-# Shape (ABC)
-	# Polygon
-		# Square
-		# Triangle
-	# Rectangle
-	# Spacer
-	# Circle
-	# RotatedShape
-	# ScaledShape
-	# LayeredShape
-	# VerticalShape
-	# HorizontalShape
 
 from abc import ABC, abstractmethod
 
