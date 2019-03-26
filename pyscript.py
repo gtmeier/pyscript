@@ -32,12 +32,10 @@ class Circle(Shape):
         self._radius = radius
 
     def export_postscript(self):
-        # TODO DRY showpage
         return self._join_lines(
             "newpath",
             f"0 0 {self._radius} 0 360 arc",
-            "stroke",
-            "showpage"
+            "stroke"
         )
 
 
@@ -48,7 +46,6 @@ class Rectangle(Shape):
         self._height = height
 
     def export_postscript(self):
-        # TODO DRY showpage
         return self._join_lines(
             "newpath",
             "0 0 moveto",
@@ -56,14 +53,12 @@ class Rectangle(Shape):
             f"{self._width} {self._height} lineto",
             f"0 {self._height} lineto",
             "closepath",
-            "stroke",
-            "showpage"
+            "stroke"
         )
 
 
 def export_postscript(shape, filename):
-    postscript_code = shape.export_postscript()
-    # TODO append showpage
+    postscript_code = shape.export_postscript() + "showpage\n"
 
     # TODO temp comment
     # write string to file -- "context manager" takes care of opening and
