@@ -29,9 +29,9 @@ class Circle(Shape):
 
     def export_postscript(self):
         # TODO refactor, DRY showpage
-        return ("newpath \n0 0 "
-                + str(self._radius)
-                + " 0 360 arc stroke \nshowpage")
+        return ("newpath\n"
+                + f"0 0 {self._radius} 0 360 arc stroke\n"
+                + "showpage")
 
 
 class Rectangle(Shape):
@@ -43,9 +43,9 @@ class Rectangle(Shape):
     def export_postscript(self):
         # TODO refactor, DRY showpage
         return ("newpath 0 0 moveto\n"
-                + str(self._width) + " 0 lineto\n"
-                + str(self._width) + " " + str(self._height) + " lineto\n"
-                + "0 " + str(self._height) + " lineto\n"
+                + f"{self._width} 0 lineto\n"
+                + f"{self._width} {self._height} lineto\n"
+                + f"0 {self._height} lineto\n"
                 + "closepath\n"
                 + "stroke\n"
                 + "showpage\n")
