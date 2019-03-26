@@ -21,6 +21,10 @@ class Shape(ABC):
     def export_postscript(self):
         pass
 
+    @staticmethod
+    def _join_lines(*lines):
+        return "\n".join(lines) + "\n"
+
 
 class Circle(Shape):
 
@@ -28,10 +32,13 @@ class Circle(Shape):
         self._radius = radius
 
     def export_postscript(self):
-        # TODO refactor, DRY showpage
-        return ("newpath\n"
-                + f"0 0 {self._radius} 0 360 arc stroke\n"
-                + "showpage")
+        # TODO DRY showpage
+        return self._join_lines(
+            "newpath",
+            f"0 0 {self._radius} 0 360 arc",
+            "stroke",
+            "showpage"
+        )
 
 
 class Rectangle(Shape):
@@ -41,14 +48,17 @@ class Rectangle(Shape):
         self._height = height
 
     def export_postscript(self):
-        # TODO refactor, DRY showpage
-        return ("newpath 0 0 moveto\n"
-                + f"{self._width} 0 lineto\n"
-                + f"{self._width} {self._height} lineto\n"
-                + f"0 {self._height} lineto\n"
-                + "closepath\n"
-                + "stroke\n"
-                + "showpage\n")
+        # TODO DRY showpage
+        return self._join_lines(
+            "newpath",
+            "0 0 moveto",
+            f"{self._width} 0 lineto",
+            f"{self._width} {self._height} lineto",
+            f"0 {self._height} lineto",
+            "closepath",
+            "stroke",
+            "showpage"
+        )
 
 
 def export_postscript(shape, filename):
