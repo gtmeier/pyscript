@@ -1,7 +1,7 @@
 from . import Shape, Point
 
 
-class HorizontalShape(Shape):
+class HorizontalShapes(Shape):
 
     def __init__(self, *shapes):
         self._shapes = shapes
