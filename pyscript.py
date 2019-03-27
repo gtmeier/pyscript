@@ -6,6 +6,10 @@
 
 
 from abc import ABC, abstractmethod
+from collections import namedtuple
+
+
+Point = namedtuple("Point", ("x", "y"))
 
 
 # TODO check correct when done with project
@@ -17,8 +21,9 @@ from abc import ABC, abstractmethod
 
 class Shape(ABC):
 
+    # TODO: check method signature is consistent w/ all subclasses
     @abstractmethod
-    def export_postscript(self):
+    def export_postscript(self, center):
         pass
 
     @staticmethod
@@ -31,10 +36,10 @@ class Circle(Shape):
     def __init__(self, radius):
         self._radius = radius
 
-    def export_postscript(self):
+    def export_postscript(self, center):
         return self._join_lines(
             "newpath",
-            f"0 0 {self._radius} 0 360 arc",
+            f"{center.x} {center.y} {self._radius} 0 360 arc",
             "stroke"
         )
 
@@ -45,10 +50,11 @@ class Rectangle(Shape):
         self._width = width
         self._height = height
 
-    def export_postscript(self):
+    # FIXME: only works for center (0, 0)
+    def export_postscript(self, center):
         return self._join_lines(
             "newpath",
-            "0 0 moveto",
+            f"{center.x} {center.y} moveto",
             f"{self._width} 0 lineto",
             f"{self._width} {self._height} lineto",
             f"0 {self._height} lineto",
@@ -57,8 +63,8 @@ class Rectangle(Shape):
         )
 
 
-def export_postscript(shape, filename="shape.ps"):
-    postscript_code = shape.export_postscript() + "showpage\n"
+def export_postscript(shape, center=Point(0, 0), filename="shape.ps"):
+    postscript_code = shape.export_postscript(center) + "showpage\n"
 
     # TODO temp comment
     # write string to file -- "context manager" takes care of opening and
@@ -71,6 +77,7 @@ def export_postscript(shape, filename="shape.ps"):
 
 # if name is main, code is executed, otherwise its'being imported as module
 if __name__ == "__main__":
-    # shape = Circle(40)
-    shape = Rectangle(40, 80)
-    export_postscript(shape)
+    shape = Circle(40)
+    # shape = Rectangle(40, 80)
+    # export_postscript(shape)
+    export_postscript(shape, Point(100, 100))
