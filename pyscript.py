@@ -50,14 +50,13 @@ class Rectangle(Shape):
         self._width = width
         self._height = height
 
-    # FIXME: only works for center (0, 0)
     def export_postscript(self, center):
         return self._join_lines(
             "newpath",
             f"{center.x} {center.y} moveto",
-            f"{self._width} 0 lineto",
-            f"{self._width} {self._height} lineto",
-            f"0 {self._height} lineto",
+            f"{self._width} 0 rlineto",
+            f"0 {self._height} rlineto",
+            f"{-self._width} 0 rlineto",
             "closepath",
             "stroke"
         )
