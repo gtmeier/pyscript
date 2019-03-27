@@ -7,17 +7,16 @@ class Rectangle(Shape):
         self._width = width
         self._height = height
 
-    # TODO: use self.width() and self.height()
     def export_postscript(self, center):
         return self._join_lines(
             "newpath",
 
-            f"{center.x - self._width / 2} "
-            f"{center.y - self._height / 2} moveto",
+            f"{center.x - self.width() / 2} "
+            f"{center.y - self.height() / 2} moveto",
 
-            f"{self._width} 0 rlineto",
-            f"0 {self._height} rlineto",
-            f"{-self._width} 0 rlineto",
+            f"{self.width()} 0 rlineto",
+            f"0 {self.height()} rlineto",
+            f"{-self.width()} 0 rlineto",
             "closepath",
             "stroke"
         )
