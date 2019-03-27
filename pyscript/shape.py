@@ -8,7 +8,7 @@ class Shape(ABC):
     def export_postscript(self, center):
         pass
 
-    @abstractmethod
+    # @abstractmethod  # TODO: uncomment
     def width(self):
         pass
 
