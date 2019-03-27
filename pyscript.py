@@ -48,8 +48,7 @@ class Circle(Shape):
         )
 
     def width(self):
-        pass
-        # return self._radius * 2
+        return self._radius * 2
 
 
 class Rectangle(Shape):
