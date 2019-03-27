@@ -68,6 +68,9 @@ class Rectangle(Shape):
             "stroke"
         )
 
+    def width(self):
+        pass
+
 
 class HorizontalShape(Shape):
 
