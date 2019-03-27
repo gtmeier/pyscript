@@ -1,11 +1,7 @@
-from collections import namedtuple
-
+from .point import Point
 from .shape import Shape
 from .circle import Circle
 from .rectangle import Rectangle
-
-
-Point = namedtuple("Point", ("x", "y"))
 
 
 # TODO check correct when done with project
