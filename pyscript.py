@@ -69,7 +69,7 @@ class Rectangle(Shape):
         )
 
     def width(self):
-        pass
+        return self._width
 
 
 class HorizontalShape(Shape):
