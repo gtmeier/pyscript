@@ -26,6 +26,10 @@ class Shape(ABC):
     def export_postscript(self, center):
         pass
 
+    @abstractmethod
+    def width(self):
+        pass
+
     @staticmethod
     def _join_lines(*lines):
         return "\n".join(lines) + "\n"
@@ -42,6 +46,9 @@ class Circle(Shape):
             f"{center.x} {center.y} {self._radius} 0 360 arc",
             "stroke"
         )
+
+    def width(self):
+        return self._radius * 2
 
 
 class Rectangle(Shape):
@@ -62,8 +69,29 @@ class Rectangle(Shape):
         )
 
 
+class HorizontalShape(Shape):
+
+    def __init__(self, *shapes):
+        self._shapes = shapes
+
+    def export_postscript(self, center):
+        shape_exports = []
+        current_x = center.x - self.width() / 2
+        for shape in self._shapes:
+            half_shape_width = shape.width() / 2
+            current_x += half_shape_width
+            shape_exports.append(
+                shape.export_postscript(Point(current_x, center.y))
+            )
+            current_x += half_shape_width
+        return "\n".join(shape_exports)
+
+    def width(self):
+        return sum(shape.width() for shape in self._shapes)
+
+
 def export_postscript(shape, center=Point(0, 0), filename="shape.ps"):
-    postscript_code = shape.export_postscript(center) + "showpage\n"
+    postscript_code = shape.export_postscript(center) + "\nshowpage\n"
 
     # TODO temp comment
     # write string to file -- "context manager" takes care of opening and
