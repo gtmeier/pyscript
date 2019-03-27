@@ -24,3 +24,6 @@ class Rectangle(Shape):
 
     def width(self):
         return self._width
+
+    def height(self):
+        pass

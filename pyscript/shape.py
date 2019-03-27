@@ -12,6 +12,10 @@ class Shape(ABC):
     def width(self):
         pass
 
+    # @abstractmethod  # TODO: uncomment
+    def height(self):
+        pass
+
     @staticmethod
     def _join_lines(*lines):
         return "\n".join(lines) + "\n"
