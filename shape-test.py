@@ -19,5 +19,5 @@ if __name__ == "__main__":
     # Export the shape centered at the default center point:
     # export_postscript(shape)
 
-    # Export the shape centered at a custom center point:
-    export_postscript(shape, Point(100, 100))
+    # Export the shape, centered at the given point, and show the center point:
+    export_postscript(shape, center=Point(100, 100), show_center=True)
