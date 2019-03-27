@@ -19,5 +19,4 @@ class HorizontalShape(Shape):
         return "\n".join(shape_exports)
 
     def width(self):
-        # return sum(shape.width() for shape in self._shapes)
-        pass
+        return sum(shape.width() for shape in self._shapes)
