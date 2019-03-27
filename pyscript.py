@@ -57,7 +57,7 @@ class Rectangle(Shape):
         )
 
 
-def export_postscript(shape, filename):
+def export_postscript(shape, filename="shape.ps"):
     postscript_code = shape.export_postscript() + "showpage\n"
 
     # TODO temp comment
@@ -71,7 +71,6 @@ def export_postscript(shape, filename):
 
 # if name is main, code is executed, otherwise its'being imported as module
 if __name__ == "__main__":
-    # circle = Circle(40)
-    # export_postscript(circle, "test_circle.ps")
-    rectangle = Rectangle(40, 80)
-    export_postscript(rectangle, "test_rectangle.ps")
+    # shape = Circle(40)
+    shape = Rectangle(40, 80)
+    export_postscript(shape)
