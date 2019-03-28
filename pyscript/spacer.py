@@ -7,7 +7,7 @@ class Spacer(Shape):
         self._width = width
         self._height = height
         
-    def _getpost_script(self, center):
+    def _get_postscript(self, center):
         return self._join_lines(
             "newpath",
 
