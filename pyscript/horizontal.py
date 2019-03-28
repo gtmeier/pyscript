@@ -20,3 +20,7 @@ class HorizontalShapes(Shape):
 
     def width(self):
         return sum(shape.width() for shape in self._shapes)
+
+    def height(self):
+        # TODO
+        pass

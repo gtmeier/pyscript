@@ -15,3 +15,7 @@ class Circle(Shape):
 
     def width(self):
         return self._radius * 2
+
+    def height(self):
+        # TODO
+        pass
