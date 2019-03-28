@@ -17,5 +17,4 @@ class Circle(Shape):
         return self._radius * 2
 
     def height(self):
-        # TODO
-        pass
+        return self.width()
