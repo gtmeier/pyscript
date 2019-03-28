@@ -17,7 +17,7 @@ if __name__ == "__main__":
     shape = Rectangle(40, 80)
 
     # Export the shape centered at the default center point:
-    # export_postscript(shape)
+    # shape.export_postscript()
 
     # Export the shape, centered at the given point, and show the center point:
-    export_postscript(shape, center=Point(100, 100), show_center=True)
+    shape.export_postscript(center=Point(100, 100), show_center=True)
