@@ -1,6 +1,6 @@
 import unittest
 
-from pyscript import HorizontalShapes, Circle, Rectangle
+from pyscript import HorizontalShapes, Circle, Rectangle, Point
 
 
 class HorizontalShapesTestCase(unittest.TestCase):
@@ -22,3 +22,65 @@ class HorizontalShapesTestCase(unittest.TestCase):
             Rectangle(3, 9)
         )
         self.assertEqual(horizontal_shapes.width(), 2 + 5 + 42 + 0 + 3)
+
+    def test_get_postscript_circles_half_off_page(self):
+        code = HorizontalShapes(
+            Circle(10),
+            Circle(20),
+            Circle(30),
+            Circle(20),
+            Circle(10)
+        )._get_postscript(Point(0, 30))
+        self.assertEqual(
+            code,
+            "newpath\n"
+            "-80.0 30 10 0 360 arc\n"
+            "stroke\n\n"
+
+            "newpath\n"
+            "-50.0 30 20 0 360 arc\n"
+            "stroke\n\n"
+
+            "newpath\n"
+            "0.0 30 30 0 360 arc\n"
+            "stroke\n\n"
+
+            "newpath\n"
+            "50.0 30 20 0 360 arc\n"
+            "stroke\n\n"
+
+            "newpath\n"
+            "80.0 30 10 0 360 arc\n"
+            "stroke\n"
+        )
+
+    def test_get_postscript_circles_on_page(self):
+        code = HorizontalShapes(
+            Circle(10),
+            Circle(20),
+            Circle(30),
+            Circle(20),
+            Circle(10)
+        )._get_postscript(Point(90, 30))
+        self.assertEqual(
+            code,
+            "newpath\n"
+            "10.0 30 10 0 360 arc\n"
+            "stroke\n\n"
+
+            "newpath\n"
+            "40.0 30 20 0 360 arc\n"
+            "stroke\n\n"
+
+            "newpath\n"
+            "90.0 30 30 0 360 arc\n"
+            "stroke\n\n"
+
+            "newpath\n"
+            "140.0 30 20 0 360 arc\n"
+            "stroke\n\n"
+
+            "newpath\n"
+            "170.0 30 10 0 360 arc\n"
+            "stroke\n"
+        )
