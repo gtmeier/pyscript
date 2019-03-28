@@ -8,6 +8,7 @@ from .spacer     import Spacer
 from .polygon    import Polygon
 from .square     import Square
 from .triangle   import Triangle
+from .scaled     import ScaledShape
 
 # TODO check correct when done with project
 # shape     = basic | compound
