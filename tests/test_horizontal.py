@@ -1,3 +1,4 @@
+import os
 import unittest
 
 from pyscript import HorizontalShapes, Circle, Rectangle, Point
@@ -84,3 +85,27 @@ class HorizontalShapesTestCase(unittest.TestCase):
             "170.0 30 10 0 360 arc\n"
             "stroke\n"
         )
+
+    def test_get_postscript_circles_and_rectangles(self):
+        code = HorizontalShapes(
+            Circle(10),
+            Rectangle(20, 20),
+            Circle(20),
+            Rectangle(40, 40),
+            Circle(30),
+            Rectangle(120, 60),
+            Circle(20),
+            Rectangle(80, 40),
+            Circle(10),
+            Rectangle(40, 20),
+            Rectangle(20, 40)
+        )._get_toplevel_postscript(Point(300, 200), False)
+        self.check_with_saved_code(code, "circles-and-rectangles.ps")
+
+    def check_with_saved_code(self, test_code, save_file_name):
+        with open(self.save_file_path(save_file_name), "r") as save_file:
+            self.assertEqual(test_code, save_file.read())
+
+    @staticmethod
+    def save_file_path(save_file_name):
+        return os.path.join("tests", "postscript-code", save_file_name)
