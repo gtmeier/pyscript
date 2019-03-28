@@ -5,7 +5,7 @@ class Shape(ABC):
 
     # TODO: check method signature is consistent w/ all subclasses
     @abstractmethod
-    def export_postscript(self, center):
+    def _get_postscript(self, center):
         pass
 
     # @abstractmethod  # TODO: uncomment

@@ -14,7 +14,7 @@ from .horizontal import HorizontalShapes
 
 def export_postscript(
         shape, center=Point(0, 0), show_center=False, filename="shape.ps"):
-    postscript_code = shape.export_postscript(center) + "\n"
+    postscript_code = shape._get_postscript(center) + "\n"
 
     if show_center:
         postscript_code += _show_center(center) + "\n"

@@ -7,7 +7,7 @@ class Rectangle(Shape):
         self._width = width
         self._height = height
 
-    def export_postscript(self, center):
+    def _get_postscript(self, center):
         return self._join_lines(
             "newpath",
 
