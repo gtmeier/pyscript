@@ -9,7 +9,7 @@ from .polygon    import Polygon
 from .square     import Square
 from .triangle   import Triangle
 from .scaled     import ScaledShape
-
+from .rotated    import RotatedShape
 # TODO check correct when done with project
 # shape     = basic | compound
 # basic     = polygon | RECTANGLE | SPACER | CIRCLE
