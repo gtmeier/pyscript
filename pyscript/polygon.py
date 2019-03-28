@@ -65,8 +65,6 @@ class Polygon(Shape):
             )
             
             
-        # TODO fix centering. centered horizontal but not vertical
-            
             
             
             
