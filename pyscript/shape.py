@@ -7,16 +7,7 @@ class Shape(ABC):
 
     def export_postscript(
             self, center=Point(0, 0), show_center=False, filename="shape.ps"):
-        postscript_code = self._get_postscript(center) + "\n"
-
-        if show_center:
-            postscript_code += self._show_center(center) + "\n"
-
-        postscript_code += "showpage\n"
-
-        # TODO temp comment
-        # write string to file -- "context manager" takes care of opening and
-        # closing
+        postscript_code = self._get_toplevel_postscript(center, show_center)
         with open(filename, "w+") as output_file:
             output_file.write(postscript_code)
 
@@ -27,6 +18,14 @@ class Shape(ABC):
     @abstractmethod
     def height(self):
         pass
+
+    def _get_toplevel_postscript(self, center, show_center):
+        postscript_code = self._get_postscript(center) + "\n"
+
+        if show_center:
+            postscript_code += self._show_center(center) + "\n"
+
+        return postscript_code + "showpage\n"
 
     # TODO: check method signature is consistent w/ all subclasses
     @abstractmethod
