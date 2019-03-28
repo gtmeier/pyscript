@@ -44,3 +44,13 @@ class Shape(ABC):
     @staticmethod
     def _join_lines(*lines):
         return "\n".join(lines) + "\n"
+
+    @staticmethod
+    def _scaled(self, scale_factor_x, scale_factor_y):
+        return self._join_lines(
+            "newpath",
+            f"{scale_factor_x} ",
+            f"{scale_factor_y} ",
+            "scale",
+            f"{self}"
+        )
