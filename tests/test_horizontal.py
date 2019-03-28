@@ -25,36 +25,16 @@ class HorizontalShapesTestCase(ShapeTestCase):
         )
         self.assertEqual(horizontal_shapes.width(), 2 + 5 + 42 + 0 + 3)
 
-    # TODO: store known-good code in a file
-    def test_get_postscript_circles_half_off_page(self):
-        code = HorizontalShapes(
-            Circle(10),
-            Circle(20),
-            Circle(30),
-            Circle(20),
-            Circle(10)
-        )._get_postscript(Point(0, 30))
-        self.assertEqual(
-            code,
-            "newpath\n"
-            "-80.0 30 10 0 360 arc\n"
-            "stroke\n\n"
-
-            "newpath\n"
-            "-50.0 30 20 0 360 arc\n"
-            "stroke\n\n"
-
-            "newpath\n"
-            "0.0 30 30 0 360 arc\n"
-            "stroke\n\n"
-
-            "newpath\n"
-            "50.0 30 20 0 360 arc\n"
-            "stroke\n\n"
-
-            "newpath\n"
-            "80.0 30 10 0 360 arc\n"
-            "stroke\n"
+    def test_export_postscript_circles_half_off_page(self):
+        self._test_export_postscript(
+            HorizontalShapes(
+                Circle(10),
+                Circle(20),
+                Circle(30),
+                Circle(20),
+                Circle(10)
+            ),
+            Point(0, 30)
         )
 
     def test_export_postscript_circles_on_page(self):
