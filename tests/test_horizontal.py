@@ -57,35 +57,16 @@ class HorizontalShapesTestCase(ShapeTestCase):
             "stroke\n"
         )
 
-    def test_get_postscript_circles_on_page(self):
-        code = HorizontalShapes(
-            Circle(10),
-            Circle(20),
-            Circle(30),
-            Circle(20),
-            Circle(10)
-        )._get_postscript(Point(90, 30))
-        self.assertEqual(
-            code,
-            "newpath\n"
-            "10.0 30 10 0 360 arc\n"
-            "stroke\n\n"
-
-            "newpath\n"
-            "40.0 30 20 0 360 arc\n"
-            "stroke\n\n"
-
-            "newpath\n"
-            "90.0 30 30 0 360 arc\n"
-            "stroke\n\n"
-
-            "newpath\n"
-            "140.0 30 20 0 360 arc\n"
-            "stroke\n\n"
-
-            "newpath\n"
-            "170.0 30 10 0 360 arc\n"
-            "stroke\n"
+    def test_export_postscript_circles_on_page(self):
+        self._test_export_postscript(
+            HorizontalShapes(
+                Circle(10),
+                Circle(20),
+                Circle(30),
+                Circle(20),
+                Circle(10)
+            ),
+            Point(90, 30)
         )
 
     def test_export_postscript_circles_and_rectangles(self):
