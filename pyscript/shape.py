@@ -33,7 +33,8 @@ class Shape(ABC):
     def _get_postscript(self, center):
         pass
 
-    def _show_center(self, center):
+    @staticmethod
+    def _show_center(center):
         return "\n".join((
             "% Show center for debugging purposes.",
             "newpath",
