@@ -16,3 +16,15 @@ class CircleTestCase(unittest.TestCase):
     def test_width_37(self):
         circle = Circle(37)
         self.assertEqual(circle.width(), 74)
+
+    def test_height_0(self):
+        circle = Circle(0)
+        self.assertEqual(circle.height(), 0)
+
+    def test_height_1(self):
+        circle = Circle(1)
+        self.assertEqual(circle.height(), 2)
+
+    def test_height_37(self):
+        circle = Circle(37)
+        self.assertEqual(circle.height(), 74)
