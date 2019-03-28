@@ -2,13 +2,12 @@ from . import Shape
 import math
 
 class Polygon(Shape):
-
-    def __init__(self, numSides, sideLength):
+    
+    def __init__(self, numSides, sideLength, width=0, height=0):
         self._numSides = numSides
         self._sideLength = sideLength
-        
-    _width = 0
-    _height = 0
+        self._width=width
+        self._height    =height
         
     def numSides(self):
         return self._numSides
@@ -29,19 +28,20 @@ class Polygon(Shape):
         return self._height
         
         
-    def determine(self):
+    def determineHW(self):
         if self._numSides % 2 != 0 :
-            setHeight(sideLength*(1+math.cos(math.pi/numSides))/(2*math.sin(math.pi/numSides)))
-            setWidth((sideLength*math.sin(math.pi*(numSides-1)/(2*numSides)))/(math.sin(math.pi/numSides)))
+            self.setHeight(self._sideLength*(1+math.cos(math.pi/self._numSides))/(2*math.sin(math.pi/self._numSides)))
+            self.setWidth((self._sideLength*math.sin(math.pi*(self._numSides-1)/(2*self._numSides)))/(math.sin(math.pi/self._numSides)))
         elif self._numSides % 4 == 0 :
-            setHeight(sideLength*(math.cos(math.pi/numSides))/(math.sin(math.pi/numSides)))
-            setWidth((sideLength*math.sin(math.pi/numSides))/(math.sin(math.pi/numSides)))
+            self.setHeight(self._sideLength*(math.cos(math.pi/self._numSides))/(math.sin(math.pi/self._numSides)))
+            self.setWidth((self._sideLength*math.sin(math.pi/self._numSides))/(math.sin(math.pi/self._numSides)))
         else:
-            setHeight(sideLength*(math.cos(math.pi/numSides))/(math.sin(math.pi/numSides)))
-            setWidth(sideLength/(math.sin(math.pi/numSides)))
+            self.setHeight(self._sideLength*(math.cos(math.pi/self._numSides))/(math.sin(math.pi/self._numSides)))
+            self.setWidth(self._sideLength/(math.sin(math.pi/self._numSides)))
 	
         
     def _get_postscript(self, center):
+        self.determineHW()
         totalAngle = (self._numSides - 2) * 180                  # formula for interior angles 
         interiorAngle = str(180 - (totalAngle / self._numSides))
         sidesMinusOne = str(self._numSides - 1)
@@ -49,8 +49,9 @@ class Polygon(Shape):
         translateX = str(self._sideLength / -2)
         translateY = str(self.getHeight() / -2)
         
+        test = str(self.getHeight())
+        
         return self._join_lines(
-            "newpath",
             "gsave ",
             translateX + " " + translateY + " translate newpath ",
             f"{center.x} {center.y} moveto ",                                      

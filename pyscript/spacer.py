@@ -26,4 +26,3 @@ class Spacer(Shape):
     def height(self):
         return self._height
         
-# TODO as the IRS says, "Trust but verify." 
