@@ -11,11 +11,11 @@ class Shape(ABC):
         with open(filename, "w+") as output_file:
             output_file.write(postscript_code)
 
-    @abstractmethod
+    # @abstractmethod # TODO: uncomment
     def width(self):
         pass
 
-    @abstractmethod
+    # @abstractmethod # TODO: uncomment
     def height(self):
         pass
 
