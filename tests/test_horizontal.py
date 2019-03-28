@@ -24,6 +24,7 @@ class HorizontalShapesTestCase(unittest.TestCase):
         )
         self.assertEqual(horizontal_shapes.width(), 2 + 5 + 42 + 0 + 3)
 
+    # TODO: store known-good code in a file
     def test_get_postscript_circles_half_off_page(self):
         code = HorizontalShapes(
             Circle(10),

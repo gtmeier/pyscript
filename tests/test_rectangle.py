@@ -29,6 +29,7 @@ class RectangleTestCase(unittest.TestCase):
         rectangle = Rectangle(5, 37)
         self.assertEqual(rectangle.height(), 37)
 
+    # TODO: store known-good code in a file
     def test_get_postscript(self):
         code = Rectangle(40, 80)._get_postscript(Point(100, 100))
         self.assertEqual(

@@ -29,6 +29,7 @@ class CircleTestCase(unittest.TestCase):
         circle = Circle(37)
         self.assertEqual(circle.height(), 74)
 
+    # TODO: store known-good code in a file
     def test_get_postscript_80_80_80(self):
         code = Circle(80)._get_postscript(Point(80, 80))
         self.assertEqual(
@@ -38,6 +39,7 @@ class CircleTestCase(unittest.TestCase):
             "stroke\n"
         )
 
+    # TODO: store known-good code in a file
     def test_get_postscript_20_160_40(self):
         code = Circle(40)._get_postscript(Point(20, 160))
         self.assertEqual(
