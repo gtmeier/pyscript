@@ -2,6 +2,7 @@ from .point import Point
 from .shape import Shape
 from .circle import Circle
 from .rectangle import Rectangle
+from .vertical import VerticalShapes
 from .horizontal import HorizontalShapes
 
 
