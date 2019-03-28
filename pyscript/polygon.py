@@ -8,6 +8,7 @@ class Polygon(Shape):
         self._sideLength = sideLength
         self._width=width
         self._height    =height
+        self.determineHW()
         
     def numSides(self):
         return self._numSides
@@ -41,7 +42,6 @@ class Polygon(Shape):
 	
         
     def _get_postscript(self, center):
-        self.determineHW()
         totalAngle = (self._numSides - 2) * 180                  # formula for interior angles 
         interiorAngle = str(180 - (totalAngle / self._numSides))
         sidesMinusOne = str(self._numSides - 1)
