@@ -1,10 +1,11 @@
 import os
-import unittest
 
 from pyscript import HorizontalShapes, Circle, Rectangle, Point
 
+from shape_test_case import ShapeTestCase
 
-class HorizontalShapesTestCase(unittest.TestCase):
+
+class HorizontalShapesTestCase(ShapeTestCase):
 
     def test_width_no_shapes(self):
         horizontal_shapes = HorizontalShapes()
@@ -87,21 +88,23 @@ class HorizontalShapesTestCase(unittest.TestCase):
             "stroke\n"
         )
 
-    def test_get_postscript_circles_and_rectangles(self):
-        code = HorizontalShapes(
-            Circle(10),
-            Rectangle(20, 20),
-            Circle(20),
-            Rectangle(40, 40),
-            Circle(30),
-            Rectangle(120, 60),
-            Circle(20),
-            Rectangle(80, 40),
-            Circle(10),
-            Rectangle(40, 20),
-            Rectangle(20, 40)
-        )._get_toplevel_postscript(Point(300, 200), False)
-        self.check_with_saved_code(code, "circles-and-rectangles.ps")
+    def test_export_postscript_circles_and_rectangles(self):
+        self._test_export_postscript(
+            HorizontalShapes(
+                Circle(10),
+                Rectangle(20, 20),
+                Circle(20),
+                Rectangle(40, 40),
+                Circle(30),
+                Rectangle(120, 60),
+                Circle(20),
+                Rectangle(80, 40),
+                Circle(10),
+                Rectangle(40, 20),
+                Rectangle(20, 40)
+            ),
+            Point(300, 200)
+        )
 
     def check_with_saved_code(self, test_code, save_file_name):
         with open(self.save_file_path(save_file_name), "r") as save_file:
