@@ -1,5 +1,3 @@
-import os
-
 from pyscript import HorizontalShapes, Circle, Rectangle, Point
 
 from shape_test_case import ShapeTestCase
@@ -66,11 +64,3 @@ class HorizontalShapesTestCase(ShapeTestCase):
             ),
             Point(300, 200)
         )
-
-    def check_with_saved_code(self, test_code, save_file_name):
-        with open(self.save_file_path(save_file_name), "r") as save_file:
-            self.assertEqual(test_code, save_file.read())
-
-    @staticmethod
-    def save_file_path(save_file_name):
-        return os.path.join("tests", "postscript-code", save_file_name)
