@@ -54,20 +54,19 @@ class Polygon(Shape):
                             / (math.sin(math.pi / self._num_sides)))
 
     def _get_postscript(self, center):
-        totalAngle = (self._num_sides - 2) * 180  # formula for interior angles
-        interiorAngle = str(180 - (totalAngle / self._num_sides))
-        sidesMinusOne = str(self._num_sides - 1)
+        total_angle = (self._num_sides - 2) * 180
+        interior_angle = str(180 - (total_angle / self._num_sides))
 
-        translateX = str(self._side_length / -2)
-        translateY = str(self.height() / -2)
+        translate_x = str(self._side_length / -2)
+        translate_y = str(self.height() / -2)
 
         return self._join_lines(
             "gsave ",
-            translateX + " " + translateY + " translate newpath ",
+            translate_x + " " + translate_y + " translate newpath ",
             f"{center.x} {center.y} moveto ",
-            "1 1 " + sidesMinusOne + " { ",
+            "1 1 " + str(self._num_sides - 1) + " { ",
             str(self._side_length) + " 0 rlineto ",
-            interiorAngle + " rotate ",
+            interior_angle + " rotate ",
             "} for ",
             "closepath",
             "stroke",
