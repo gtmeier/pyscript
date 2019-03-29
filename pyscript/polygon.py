@@ -61,14 +61,14 @@ class Polygon(Shape):
         translate_y = str(self.height() / -2)
 
         return self._join_lines(
-            "gsave ",
-            translate_x + " " + translate_y + " translate newpath ",
-            f"{center.x} {center.y} moveto ",
-            "1 1 " + str(self._num_sides - 1) + " { ",
-            str(self._side_length) + " 0 rlineto ",
-            interior_angle + " rotate ",
-            "} for ",
+            "gsave",
+            translate_x + " " + translate_y + " translate newpath",
+            f"{center.x} {center.y} moveto",
+            "1 1 " + str(self._num_sides - 1) + " {",
+            str(self._side_length) + " 0 rlineto",
+            interior_angle + " rotate",
+            "} for",
             "closepath",
             "stroke",
-            "grestore "
-            )
+            "grestore"
+        )
