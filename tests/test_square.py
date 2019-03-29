@@ -7,15 +7,15 @@ class SquareTestCase(unittest.TestCase):
 
     def test_side_length_0(self):
         square = Square(0)
-        self.assertEqual(square.sideLength(), 0)
+        self.assertEqual(square._sideLength, 0)
 
     def test_side_length_1(self):
         square = Square(1)
-        self.assertEqual(square.sideLength(), 1)
+        self.assertEqual(square._sideLength, 1)
 
     def test_side_length_54(self):
         square = Square(54)
-        self.assertEqual(square.sideLength(), 54)
+        self.assertEqual(square._sideLength, 54)
 
     def test_num_sides_4(self):
         square = Square(1)
