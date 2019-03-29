@@ -1,6 +1,6 @@
 import unittest
 
-from pyscript import Square, Point
+from pyscript import Square
 
 
 class SquareTestCase(unittest.TestCase):
