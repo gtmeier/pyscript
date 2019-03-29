@@ -4,11 +4,9 @@ import math
 
 class Polygon(Shape):
 
-    def __init__(self, numSides, sideLength, width=0, height=0):
+    def __init__(self, numSides, sideLength):
         self._numSides = numSides
         self._sideLength = sideLength
-        self._width = width
-        self._height = height
         self.determineHW()
 
     def numSides(self):
