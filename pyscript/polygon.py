@@ -15,10 +15,10 @@ class Polygon(Shape):
     def set_height(self, height):
         self._height = height
 
-    def get_width(self):
+    def width(self):
         return self._width
 
-    def get_height(self):
+    def height(self):
         return self._height
 
     def _calculate_height_width(self):
@@ -59,7 +59,7 @@ class Polygon(Shape):
         sidesMinusOne = str(self._num_sides - 1)
 
         translateX = str(self._side_length / -2)
-        translateY = str(self.get_height() / -2)
+        translateY = str(self.height() / -2)
 
         return self._join_lines(
             "gsave ",
