@@ -9,10 +9,10 @@ class Polygon(Shape):
         self._side_length = side_length
         self._calculate_height_width()
 
-    def set_width(self, width):
+    def _set_width(self, width):
         self._width = width
 
-    def set_height(self, height):
+    def _set_height(self, height):
         self._height = height
 
     def width(self):
@@ -23,35 +23,35 @@ class Polygon(Shape):
 
     def _calculate_height_width(self):
         if self._num_sides % 2 != 0:
-            self.set_height(
+            self._set_height(
                 self._side_length
                 * (1 + math.cos(math.pi / self._num_sides))
                 / (2 * math.sin(math.pi / self._num_sides))
             )
-            self.set_width(
+            self._set_width(
                 (self._side_length
                  * math.sin(math.pi
                             * (self._num_sides - 1) / (2 * self._num_sides)))
                 / (math.sin(math.pi / self._num_sides))
             )
         elif self._num_sides % 4 == 0:
-            self.set_height(
+            self._set_height(
                 self._side_length
                 * (math.cos(math.pi / self._num_sides))
                 / (math.sin(math.pi / self._num_sides))
             )
-            self.set_width(
+            self._set_width(
                 (self._side_length * math.sin(math.pi / self._num_sides))
                 / (math.sin(math.pi / self._num_sides))
             )
         else:
-            self.set_height(
+            self._set_height(
                 self._side_length
                 * (math.cos(math.pi / self._num_sides))
                 / (math.sin(math.pi / self._num_sides))
             )
-            self.set_width(self._side_length
-                           / (math.sin(math.pi / self._num_sides)))
+            self._set_width(self._side_length
+                            / (math.sin(math.pi / self._num_sides)))
 
     def _get_postscript(self, center):
         totalAngle = (self._num_sides - 2) * 180  # formula for interior angles
