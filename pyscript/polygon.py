@@ -1,71 +1,74 @@
 from . import Shape
 import math
 
+
 class Polygon(Shape):
-    
-    def __init__(self, numSides, sideLength, width=0, height=0):
-        self._numSides = numSides
-        self._sideLength = sideLength
-        self._width=width
-        self._height    =height
-        self.determineHW()
-        
-    def numSides(self):
-        return self._numSides
 
-    def sideLength(self):
-        return self._sideLength
-    
-    def setWidth(self, width):
-        self._width = width  
-        
-    def setHeight(self, height):
+    def __init__(self, num_sides, side_length):
+        self._num_sides = num_sides
+        self._side_length = side_length
+        self._calculate_height_width()
+
+    def _set_width(self, width):
+        self._width = width
+
+    def _set_height(self, height):
         self._height = height
-        
-    def getWidth(self):
-        return self._width
-        
-    def getHeight(self):
-        return self._height
-        
-        
-    def determineHW(self):
-        if self._numSides % 2 != 0 :
-            self.setHeight(self._sideLength*(1+math.cos(math.pi/self._numSides))/(2*math.sin(math.pi/self._numSides)))
-            self.setWidth((self._sideLength*math.sin(math.pi*(self._numSides-1)/(2*self._numSides)))/(math.sin(math.pi/self._numSides)))
-        elif self._numSides % 4 == 0 :
-            self.setHeight(self._sideLength*(math.cos(math.pi/self._numSides))/(math.sin(math.pi/self._numSides)))
-            self.setWidth((self._sideLength*math.sin(math.pi/self._numSides))/(math.sin(math.pi/self._numSides)))
-        else:
-            self.setHeight(self._sideLength*(math.cos(math.pi/self._numSides))/(math.sin(math.pi/self._numSides)))
-            self.setWidth(self._sideLength/(math.sin(math.pi/self._numSides)))
-	
-        
-    def _get_postscript(self, center):
-        totalAngle = (self._numSides - 2) * 180                  # formula for interior angles 
-        interiorAngle = str(180 - (totalAngle / self._numSides))
-        sidesMinusOne = str(self._numSides - 1)
 
-        translateX = str(self._sideLength / -2)
-        translateY = str(self.getHeight() / -2)
-        
-        test = str(self.getHeight())
-        
+    def width(self):
+        return self._width
+
+    def height(self):
+        return self._height
+
+    def _calculate_height_width(self):
+        if self._num_sides % 2 != 0:
+            self._set_height(
+                self._side_length
+                * (1 + math.cos(math.pi / self._num_sides))
+                / (2 * math.sin(math.pi / self._num_sides))
+            )
+            self._set_width(
+                (self._side_length
+                 * math.sin(math.pi
+                            * (self._num_sides - 1) / (2 * self._num_sides)))
+                / (math.sin(math.pi / self._num_sides))
+            )
+        elif self._num_sides % 4 == 0:
+            self._set_height(
+                self._side_length
+                * (math.cos(math.pi / self._num_sides))
+                / (math.sin(math.pi / self._num_sides))
+            )
+            self._set_width(
+                (self._side_length * math.sin(math.pi / self._num_sides))
+                / (math.sin(math.pi / self._num_sides))
+            )
+        else:
+            self._set_height(
+                self._side_length
+                * (math.cos(math.pi / self._num_sides))
+                / (math.sin(math.pi / self._num_sides))
+            )
+            self._set_width(self._side_length
+                            / (math.sin(math.pi / self._num_sides)))
+
+    def _get_postscript(self, center):
+        total_angle = (self._num_sides - 2) * 180
+        interior_angle = str(180 - (total_angle / self._num_sides))
+
+        translate_x = str(self._side_length / -2)
+        translate_y = str(self.height() / -2)
+
         return self._join_lines(
-            "gsave ",
-            translateX + " " + translateY + " translate newpath ",
-            f"{center.x} {center.y} moveto ",                                      
-            "1 1 " + sidesMinusOne + " { ",
-            str(self._sideLength) + " 0 rlineto ",
-            interiorAngle + " rotate ",
-            "} for ",
+            "gsave",
+            translate_x + " " + translate_y + " translate newpath",
+            f"{center.x} {center.y} moveto",
+            "1 1 " + str(self._num_sides - 1) + " {",
+            str(self._side_length) + " 0 rlineto",
+            interior_angle + " rotate",
+            "} for",
             "closepath",
             "stroke",
-            "grestore "
-            )
-            
-            
-            
-            
-            
-            
+            "grestore"
+        )
