@@ -9,9 +9,6 @@ class Polygon(Shape):
         self._sideLength = sideLength
         self.determineHW()
 
-    def numSides(self):
-        return self._numSides
-
     def sideLength(self):
         return self._sideLength
 

@@ -19,7 +19,7 @@ class SquareTestCase(unittest.TestCase):
 
     def test_num_sides_4(self):
         square = Square(1)
-        self.assertEqual(square.numSides(), 4)
+        self.assertEqual(square._numSides, 4)
 
     # FIXME
     # def test_get_postscript(self):
