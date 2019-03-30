@@ -1,4 +1,4 @@
-from . import Shape
+from . import Shape, Point
 
 
 # TODO: tests
@@ -12,14 +12,14 @@ class ScaledShape(Shape):
         self._scale_factor_y = scale_factor_y
 
     def _get_postscript(self, center):
-        shape_postscript = self._shape._get_postscript(center)
-
-        # TODO: gsave and grestore
+        shape_postscript = self._shape._get_postscript(Point(0, 0))
         return self._join_lines(
-            f"{self._scale_factor_x} "
-            f"{self._scale_factor_y} ",
-            "scale",
-            f"{shape_postscript}")
+            "gsave",
+            f"{center.x} {center.y} translate ",
+            f"{self._scale_factor_x} {self._scale_factor_y} scale\n",
+            f"{shape_postscript}",
+            "grestore"
+        )
 
     def _get_width(self):
         return self._shape._get_width() * self._scale_factor_x
