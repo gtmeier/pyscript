@@ -1,7 +1,7 @@
 from . import Shape, Point
 
 
-# TODO: tests
+# TODO: tests for export_postscript
 
 
 class ScaledShape(Shape):
@@ -22,9 +22,7 @@ class ScaledShape(Shape):
         )
 
     def _get_width(self):
-        pass
-        # return self._shape._get_width() * self._scale_factor_x
+        return self._shape._get_width() * self._scale_factor_x
 
     def _get_height(self):
-        pass
-        # return self._shape._get_height() * self._scale_factor_y
+        return self._shape._get_height() * self._scale_factor_y
