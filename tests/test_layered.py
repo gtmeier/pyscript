@@ -22,3 +22,20 @@ class LayeredShapesTestCase(ShapeTestCase):
             Rectangle(3, 9)
         )
         self.assertEqual(shape._get_width(), 42)
+
+    def test_get_height_no_shapes(self):
+        shape = LayeredShapes()
+        self.assertEqual(shape._get_height(), 0)
+
+    def test_get_height_single_shape(self):
+        shape = LayeredShapes(Rectangle(1, 5))
+        self.assertEqual(shape._get_height(), 5)
+
+    def test_get_height_multiple_shapes(self):
+        shape = LayeredShapes(
+            Circle(1),
+            Rectangle(5, 10),
+            Rectangle(0, 1),
+            Rectangle(3, 9)
+        )
+        self.assertEqual(shape._get_height(), 10)
