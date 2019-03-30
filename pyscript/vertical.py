@@ -26,4 +26,5 @@ class VerticalShapes(Shape):
 
     # TODO: tests
     def _get_height(self):
-        return sum(shape._get_height() for shape in self._shapes)
+        pass
+        # return sum(shape._get_height() for shape in self._shapes)
