@@ -29,7 +29,7 @@ class Polygon(Shape):
         if self._num_sides % 2 != 0:
             self._set_height(
                 self._side_length
-                * (1 + math.cos(math.pi / self._num_sides))
+                #* (1 + math.cos(math.pi / self._num_sides)) # triangle
                 / (2 * math.sin(math.pi / self._num_sides))
             )
             self._set_width(
