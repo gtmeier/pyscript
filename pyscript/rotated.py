@@ -14,12 +14,12 @@ class RotatedShape(Shape):
         self._rotation_angle = rotation_angle
 
         if self._rotation_angle in (90, 270):
-            self._width = self._shape._height
-            self._height = self._shape._width
+            self._width = self._shape._get_height()
+            self._height = self._shape._get_width()
         else:
             assert self._rotation_angle == 180
-            self._width = self._shape._width
-            self._height = self._shape._height
+            self._width = self._shape._get_width()
+            self._height = self._shape._get_height()
 
     def _get_postscript(self, center):
         shape_postscript = self._shape._get_postscript(Point(0, 0))
