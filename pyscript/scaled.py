@@ -1,9 +1,3 @@
-# Scaled(Shape shape, double fx, double fy).
-# Takes a shape, a horizontal scaling factor fx,
-# and a vertical scaling factor fy. Creates
-# a version of the shape that is scaled horizontally
-# and vertically by the given scaling factors.
-
 from . import Shape
 
 
