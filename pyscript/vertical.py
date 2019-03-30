@@ -22,8 +22,7 @@ class VerticalShapes(Shape):
         return "\n".join(shape_exports)
 
     def _get_width(self):
-        # TODO
-        pass
+        return max((shape._get_width() for shape in self._shapes), default=0)
 
     # TODO: tests
     def _get_height(self):
