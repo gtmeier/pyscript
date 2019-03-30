@@ -57,21 +57,21 @@ class Polygon(Shape):
             self._set_width(self._side_length
                             / (math.sin(math.pi / self._num_sides)))
 
-    # TODO: refactor
     def _get_postscript(self, center):
         total_angle = (self._num_sides - 2) * 180
         interior_angle = str(180 - (total_angle / self._num_sides))
 
-        translate_x = str(self._side_length / -2)
-        translate_y = str(self._get_height() / -2)
+        translate_x = self._side_length / -2
+        translate_y = self._get_height() / -2
 
         return self._join_lines(
             "gsave",
-            translate_x + " " + translate_y + " translate newpath",
+            f"{translate_x} {translate_y} translate",
+            "newpath",
             f"{center.x} {center.y} moveto",
-            "1 1 " + str(self._num_sides - 1) + " {",
-            str(self._side_length) + " 0 rlineto",
-            interior_angle + " rotate",
+            f"1 1 {self._num_sides - 1} " + "{",
+            f"    {self._side_length} 0 rlineto",
+            f"    {interior_angle} rotate",
             "} for",
             "closepath",
             "stroke",
