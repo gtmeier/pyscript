@@ -5,15 +5,15 @@ from shape_test_case import ShapeTestCase
 
 class HorizontalShapesTestCase(ShapeTestCase):
 
-    def test_width_no_shapes(self):
+    def test_get_width_no_shapes(self):
         horizontal_shapes = HorizontalShapes()
-        self.assertEqual(horizontal_shapes.width(), 0)
+        self.assertEqual(horizontal_shapes._get_width(), 0)
 
-    def test_width_single_shape(self):
+    def test_get_width_single_shape(self):
         horizontal_shapes = HorizontalShapes(Circle(3))
-        self.assertEqual(horizontal_shapes.width(), 6)
+        self.assertEqual(horizontal_shapes._get_width(), 6)
 
-    def test_width_multiple_shapes(self):
+    def test_get_width_multiple_shapes(self):
         horizontal_shapes = HorizontalShapes(
             Circle(1),
             Rectangle(5, 10),
@@ -21,7 +21,25 @@ class HorizontalShapesTestCase(ShapeTestCase):
             Rectangle(0, 1),
             Rectangle(3, 9)
         )
-        self.assertEqual(horizontal_shapes.width(), 2 + 5 + 42 + 0 + 3)
+        self.assertEqual(horizontal_shapes._get_width(), 2 + 5 + 42 + 0 + 3)
+
+    def test_get_height_no_shapes(self):
+        horizontal_shapes = HorizontalShapes()
+        self.assertEqual(horizontal_shapes._get_height(), 0)
+
+    def test_get_height_single_shape(self):
+        horizontal_shapes = HorizontalShapes(Circle(3))
+        self.assertEqual(horizontal_shapes._get_height(), 6)
+
+    def test_get_height_multiple_shapes(self):
+        horizontal_shapes = HorizontalShapes(
+            Circle(1),
+            Rectangle(5, 10),
+            Circle(21),
+            Rectangle(0, 1),
+            Rectangle(3, 9)
+        )
+        self.assertEqual(horizontal_shapes._get_height(), 42)
 
     def test_export_postscript_circles_half_off_page(self):
         self._test_export_postscript(

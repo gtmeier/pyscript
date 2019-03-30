@@ -13,8 +13,8 @@ class Circle(Shape):
             "stroke"
         )
 
-    def width(self):
+    def _get_width(self):
         return self._radius * 2
 
-    def height(self):
-        return self.width()
+    def _get_height(self):
+        return self._get_width()

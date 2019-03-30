@@ -2,6 +2,9 @@ from . import Shape
 import math
 
 
+# TODO: tests
+
+
 class Polygon(Shape):
 
     def __init__(self, num_sides, side_length):
@@ -15,12 +18,13 @@ class Polygon(Shape):
     def _set_height(self, height):
         self._height = height
 
-    def width(self):
+    def _get_width(self):
         return self._width
 
-    def height(self):
+    def _get_height(self):
         return self._height
 
+    # TODO: refactor
     def _calculate_height_width(self):
         if self._num_sides % 2 != 0:
             self._set_height(
@@ -53,12 +57,13 @@ class Polygon(Shape):
             self._set_width(self._side_length
                             / (math.sin(math.pi / self._num_sides)))
 
+    # TODO: refactor
     def _get_postscript(self, center):
         total_angle = (self._num_sides - 2) * 180
         interior_angle = str(180 - (total_angle / self._num_sides))
 
         translate_x = str(self._side_length / -2)
-        translate_y = str(self.height() / -2)
+        translate_y = str(self._get_height() / -2)
 
         return self._join_lines(
             "gsave",

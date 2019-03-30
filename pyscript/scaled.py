@@ -1,10 +1,7 @@
-# Scaled(Shape shape, double fx, double fy).
-# Takes a shape, a horizontal scaling factor fx,
-# and a vertical scaling factor fy. Creates
-# a version of the shape that is scaled horizontally
-# and vertically by the given scaling factors.
-
 from . import Shape
+
+
+# TODO: tests
 
 
 class ScaledShape(Shape):
@@ -17,6 +14,7 @@ class ScaledShape(Shape):
     def _get_postscript(self, center):
         shape_postscript = self._shape._get_postscript(center)
 
+        # TODO: gsave and grestore
         return self._join_lines(
             f"{self._scale_factor_x} "
             f"{self._scale_factor_y} ",

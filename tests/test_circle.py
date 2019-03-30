@@ -5,29 +5,29 @@ from pyscript import Circle, Point
 
 class CircleTestCase(unittest.TestCase):
 
-    def test_width_0(self):
+    def test_get_width_0(self):
         circle = Circle(0)
-        self.assertEqual(circle.width(), 0)
+        self.assertEqual(circle._get_width(), 0)
 
-    def test_width_1(self):
+    def test_get_width_1(self):
         circle = Circle(1)
-        self.assertEqual(circle.width(), 2)
+        self.assertEqual(circle._get_width(), 2)
 
-    def test_width_37(self):
+    def test_get_width_37(self):
         circle = Circle(37)
-        self.assertEqual(circle.width(), 74)
+        self.assertEqual(circle._get_width(), 74)
 
-    def test_height_0(self):
+    def test_get_height_0(self):
         circle = Circle(0)
-        self.assertEqual(circle.height(), 0)
+        self.assertEqual(circle._get_height(), 0)
 
-    def test_height_1(self):
+    def test_get_height_1(self):
         circle = Circle(1)
-        self.assertEqual(circle.height(), 2)
+        self.assertEqual(circle._get_height(), 2)
 
-    def test_height_37(self):
+    def test_get_height_37(self):
         circle = Circle(37)
-        self.assertEqual(circle.height(), 74)
+        self.assertEqual(circle._get_height(), 74)
 
     # TODO: store known-good code in a file
     def test_get_postscript_80_80_80(self):

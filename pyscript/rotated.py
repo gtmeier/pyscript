@@ -1,6 +1,9 @@
 from . import Shape, Point
 
 
+# TODO: tests
+
+
 class RotatedShape(Shape):
 
     def __init__(self, shape, rotation_angle):
