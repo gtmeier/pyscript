@@ -11,14 +11,6 @@ class Shape(ABC):
         with open(filename, "w+") as output_file:
             output_file.write(postscript_code)
 
-    @abstractmethod
-    def _get_width(self):
-        pass
-
-    @abstractmethod
-    def _get_height(self):
-        pass
-
     def _get_toplevel_postscript(self, center, show_center):
         postscript_code = self._get_postscript(center) + "\n"
 
@@ -30,6 +22,14 @@ class Shape(ABC):
     # TODO: check method signature is consistent w/ all subclasses
     @abstractmethod
     def _get_postscript(self, center):
+        pass
+
+    @abstractmethod
+    def _get_width(self):
+        pass
+
+    @abstractmethod
+    def _get_height(self):
         pass
 
     @staticmethod
