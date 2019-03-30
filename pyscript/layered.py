@@ -1,5 +1,6 @@
 from . import Shape, Point
 
+
 class LayeredShapes(Shape):
 
     def __init__(self, *shapes):
@@ -16,19 +17,3 @@ class LayeredShapes(Shape):
 
     def width(self):
         return sum(shape.width() for shape in self._shapes)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
