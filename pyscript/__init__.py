@@ -10,6 +10,8 @@ from .square     import Square
 from .triangle   import Triangle
 from .scaled     import ScaledShape
 from .rotated    import RotatedShape
+from .layered    import LayeredShapes
+
 # TODO check correct when done with project
 # shape     = basic | compound
 # basic     = polygon | RECTANGLE | SPACER | CIRCLE
