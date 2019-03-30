@@ -16,7 +16,7 @@ class LayeredShapes(Shape):
         return "\n".join(shape_exports)
 
     def _get_width(self):
-        return sum(shape.width() for shape in self._shapes)
+        return max((shape._get_width() for shape in self._shapes), default=0)
 
     def _get_height(self):
         # TODO
