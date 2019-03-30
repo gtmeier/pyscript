@@ -1,4 +1,4 @@
-from . import Shape, Point
+from . import Shape
 
 
 class LayeredShapes(Shape):
@@ -7,13 +7,9 @@ class LayeredShapes(Shape):
         self._shapes = shapes
 
     def _get_postscript(self, center):
-        shape_exports = []
-        current_x = center.x
-        for shape in self._shapes:
-            shape_exports.append(
-                shape._get_postscript(Point(current_x, center.y))
-            )
-        return "\n".join(shape_exports)
+        return "\n".join(
+            shape._get_postscript(center) for shape in self._shapes
+        )
 
     def _get_width(self):
         return max((shape._get_width() for shape in self._shapes), default=0)
