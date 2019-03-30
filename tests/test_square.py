@@ -21,6 +21,14 @@ class SquareTestCase(unittest.TestCase):
         square = Square(1)
         self.assertEqual(square._num_sides, 4)
 
+    def test_width(self):
+        square = Square(1)
+        self.assertEqual(square._get_width(), 1)
+
+    def test_height(self):
+        square = Square(1)
+        self.assertEqual(square._get_height(), 1)
+
     # FIXME
     # def test_get_postscript(self):
     #     code = Square(40)._get_postscript(Point(100, 100))
