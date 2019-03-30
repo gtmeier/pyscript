@@ -25,9 +25,25 @@ class SquareTestCase(unittest.TestCase):
         square = Square(1)
         self.assertEqual(square._get_width(), 1)
 
+    def test_width(self):
+        square = Square(23)
+        self.assertEqual(square._get_width(), 23)
+
+    def test_width(self):
+        square = Square(59)
+        self.assertEqual(square._get_width(), 59)
+
     def test_height(self):
-        square = Square(1)
-        self.assertEqual(square._get_height(), 1)
+        square = Square(31)
+        self.assertEqual(square._get_height(), 31)
+
+    def test_height(self):
+        square = Square(79)
+        self.assertEqual(square._get_height(), 79)
+
+    def test_height(self):
+        square = Square(131)
+        self.assertEqual(square._get_height(), 131)
 
     # FIXME
     # def test_get_postscript(self):
