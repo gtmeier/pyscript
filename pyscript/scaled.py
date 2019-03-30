@@ -21,8 +21,8 @@ class ScaledShape(Shape):
             "scale",
             f"{shape_postscript}")
 
-    def width(self):
-        return self._shape.width() * self._scale_factor_x
+    def _get_width(self):
+        return self._shape._get_width() * self._scale_factor_x
 
-    def height(self):
-        return self._shape.width() * self._scale_factor_y
+    def _get_height(self):
+        return self._shape._get_height() * self._scale_factor_y
