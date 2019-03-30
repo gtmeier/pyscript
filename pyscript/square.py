@@ -8,3 +8,9 @@ class Square(Polygon):
 
     def __init__(self, sideLength):
         super().__init__(4, sideLength)
+
+    def _get_width(self):
+        return round(super()._get_width())
+
+    def _get_height(self):
+        return round(super()._get_height())
