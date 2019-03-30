@@ -22,7 +22,9 @@ class ScaledShape(Shape):
         )
 
     def _get_width(self):
-        return self._shape._get_width() * self._scale_factor_x
+        pass
+        # return self._shape._get_width() * self._scale_factor_x
 
     def _get_height(self):
-        return self._shape._get_height() * self._scale_factor_y
+        pass
+        # return self._shape._get_height() * self._scale_factor_y
