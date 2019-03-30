@@ -22,8 +22,8 @@ class RotatedShape(Shape):
             "grestore"
         )
 
-    def width(self):
+    def _get_width(self):
         pass
 
-    def height(self):
+    def _get_height(self):
         pass

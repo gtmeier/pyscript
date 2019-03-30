@@ -16,8 +16,8 @@ class Spacer(Shape):
             f"% spacer centered at ({center.x}, {center.y})"
         )
 
-    def width(self):
+    def _get_width(self):
         return self._width
 
-    def height(self):
+    def _get_height(self):
         return self._height
