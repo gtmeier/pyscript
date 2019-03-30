@@ -1,7 +1,7 @@
 from . import Shape, Point
 
 
-# TODO: tests
+# TODO: tests for export_postscript
 
 
 class VerticalShapes(Shape):
@@ -24,7 +24,5 @@ class VerticalShapes(Shape):
     def _get_width(self):
         return max((shape._get_width() for shape in self._shapes), default=0)
 
-    # TODO: tests
     def _get_height(self):
-        pass
-        # return sum(shape._get_height() for shape in self._shapes)
+        return sum(shape._get_height() for shape in self._shapes)
