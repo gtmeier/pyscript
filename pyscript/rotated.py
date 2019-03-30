@@ -7,9 +7,9 @@ from . import Shape, Point
 class RotatedShape(Shape):
 
     def __init__(self, shape, rotation_angle):
+        if rotation_angle not in (90, 180, 270):
+            raise ValueError()
         self._shape = shape
-        # TODO Enforce rotation angle value 90, 180, 270
-        # TODO or ask if we can allow arbitrary rotation angle
         self._rotation_angle = rotation_angle
 
     def _get_postscript(self, center):
