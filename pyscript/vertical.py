@@ -1,6 +1,9 @@
 from . import Shape, Point
 
 
+# TODO: tests
+
+
 class VerticalShapes(Shape):
 
     def __init__(self, *shapes):

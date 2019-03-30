@@ -1,6 +1,9 @@
 from . import Shape
 
 
+# TODO: tests
+
+
 class ScaledShape(Shape):
 
     def __init__(self, shape, scale_factor_x, scale_factor_y):
@@ -11,6 +14,7 @@ class ScaledShape(Shape):
     def _get_postscript(self, center):
         shape_postscript = self._shape._get_postscript(center)
 
+        # TODO: gsave and grestore
         return self._join_lines(
             f"{self._scale_factor_x} "
             f"{self._scale_factor_y} ",
