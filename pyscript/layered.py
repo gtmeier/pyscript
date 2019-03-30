@@ -19,5 +19,4 @@ class LayeredShapes(Shape):
         return max((shape._get_width() for shape in self._shapes), default=0)
 
     def _get_height(self):
-        # TODO
-        pass
+        return max((shape._get_height() for shape in self._shapes), default=0)
