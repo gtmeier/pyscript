@@ -37,3 +37,27 @@ class RotatedShapeTestCase(ShapeTestCase):
     def test_value_error_720(self):
         with self.assertRaises(ValueError):
             RotatedShape(Rectangle(10, 20), 720)
+
+    def test_get_width_90(self):
+        shape = RotatedShape(Rectangle(20, 30), 90)
+        self.assertEqual(shape._get_width(), 30)
+
+    def test_get_width_180(self):
+        shape = RotatedShape(Rectangle(20, 30), 180)
+        self.assertEqual(shape._get_width(), 20)
+
+    def test_get_width_270(self):
+        shape = RotatedShape(Rectangle(20, 30), 270)
+        self.assertEqual(shape._get_width(), 30)
+
+    def test_get_height_90(self):
+        shape = RotatedShape(Rectangle(20, 30), 90)
+        self.assertEqual(shape._get_height(), 20)
+
+    def test_get_height_180(self):
+        shape = RotatedShape(Rectangle(20, 30), 180)
+        self.assertEqual(shape._get_height(), 30)
+
+    def test_get_height_270(self):
+        shape = RotatedShape(Rectangle(20, 30), 270)
+        self.assertEqual(shape._get_height(), 20)

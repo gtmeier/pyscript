@@ -1,7 +1,7 @@
 from . import Shape, Point
 
 
-# TODO: tests
+# TODO: tests for export_postscript
 
 
 class RotatedShape(Shape):
