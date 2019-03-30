@@ -10,7 +10,9 @@ class Square(Polygon):
         super().__init__(4, sideLength)
 
     def _get_width(self):
-        return round(super()._get_width())
+        assert round(super()._get_width()) == self._side_length
+        return self._side_length
 
     def _get_height(self):
-        return round(super()._get_height())
+        assert round(super()._get_height()) == self._side_length
+        return self._side_length
