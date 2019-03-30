@@ -11,18 +11,18 @@ class Rectangle(Shape):
         return self._join_lines(
             "newpath",
 
-            f"{center.x - self.width() / 2} "
-            f"{center.y - self.height() / 2} moveto",
+            f"{center.x - self._get_width() / 2} "
+            f"{center.y - self._get_height() / 2} moveto",
 
-            f"{self.width()} 0 rlineto",
-            f"0 {self.height()} rlineto",
-            f"{-self.width()} 0 rlineto",
+            f"{self._get_width()} 0 rlineto",
+            f"0 {self._get_height()} rlineto",
+            f"{-self._get_width()} 0 rlineto",
             "closepath",
             "stroke"
         )
 
-    def width(self):
+    def _get_width(self):
         return self._width
 
-    def height(self):
+    def _get_height(self):
         return self._height
