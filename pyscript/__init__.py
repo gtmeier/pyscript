@@ -12,6 +12,8 @@ from .scaled     import ScaledShape
 from .rotated    import RotatedShape
 from .layered    import LayeredShapes
 from .fractals   import sierpinski_triangle
+from .fractals   import sierpinski_triangle_pages
+from .fractals   import write_postscript
 
 # TODO check correct when done with project
 # shape     = basic | compound

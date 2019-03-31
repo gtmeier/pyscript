@@ -1,9 +1,26 @@
 from . import Triangle, RotatedShape, Point
 
 
+# TODO: use a Fractals base class
+
+
 # http://jwilson.coe.uga.edu/emat6680/parsons/mvp6690/essay1/sierpinski.html
 
 
+def write_postscript(postscript_code, filename):
+    with open(filename, "w+") as output_file:
+        output_file.write(postscript_code)
+
+
+def sierpinski_triangle_pages(side_len, center, max_recursion_depth):
+    return "\nshowpage\n\n".join(
+        sierpinski_triangle(side_len, center, recursion_depth)
+        for recursion_depth in range(max_recursion_depth + 1)
+    )
+
+
+# TODO: try to reduce size of postscript code (becomes unreasonably large at
+# higher recursion depths)
 def sierpinski_triangle(side_len, center, recursion_depth):
     outer_triangle = Triangle(side_len)
     outer_base_y = center.y - outer_triangle._get_height() / 2
@@ -18,9 +35,7 @@ def sierpinski_triangle(side_len, center, recursion_depth):
         inner_triangle_side_len, inner_triangle_center, recursion_depth
     )
 
-    _export_multiple_shapes(
-        (outer_triangle, center), *inner_triangles, filename="sierpinski.ps"
-    )
+    return _export_multiple_shapes((outer_triangle, center), *inner_triangles)
 
 
 def _inverted_triangle_pattern(side_len, center, recursion_depth):
@@ -56,9 +71,7 @@ def _inverted_triangle_pattern(side_len, center, recursion_depth):
     return ((triangle, center), *upper_pattern, *left_pattern, *right_pattern)
 
 
-def _export_multiple_shapes(*shape_center_pairs, filename="shapes.ps"):
-    code = "\n".join(
+def _export_multiple_shapes(*shape_center_pairs):
+    return "\n".join(
         shape._get_postscript(center) for shape, center in shape_center_pairs
     )
-    with open(filename, "w+") as output_file:
-        output_file.write(code)
