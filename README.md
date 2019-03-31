@@ -16,7 +16,7 @@ To create and export a shape, simply construct the shape and call its
     circle = Circle(50)
     circle.export_postscript(center=Point(100, 100), filename="circle.ps")
 
-See [pyscript/__init__.py](pyscript/__init__.py) for a complete list of public
+See [`pyscript/__init__.py`](pyscript/__init__.py) for a complete list of public
 classes and functions.
 
 ## Tests
