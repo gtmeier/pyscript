@@ -18,7 +18,9 @@ def sierpinski_triangle(side_len, center, recursion_depth):
         inner_triangle_side_len, inner_triangle_center, recursion_depth
     )
 
-    export_multiple_shapes((outer_triangle, center), *inner_triangles)
+    _export_multiple_shapes(
+        (outer_triangle, center), *inner_triangles, filename="sierpinski.ps"
+    )
 
 
 def _inverted_triangle_pattern(side_len, center, recursion_depth):
@@ -54,7 +56,7 @@ def _inverted_triangle_pattern(side_len, center, recursion_depth):
     return ((triangle, center), *upper_pattern, *left_pattern, *right_pattern)
 
 
-def export_multiple_shapes(*shape_center_pairs, filename="shapes.ps"):
+def _export_multiple_shapes(*shape_center_pairs, filename="shapes.ps"):
     code = "\n".join(
         shape._get_postscript(center) for shape, center in shape_center_pairs
     )
