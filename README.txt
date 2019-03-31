@@ -1,14 +1,3 @@
-Pyscript -- a python to postscript interpreter
-
-CS372 Project 2
-George Meier
-Jake Herrmann
-Laura Lundell
-
-
-For documentation on how to call the Pyscript functions please see the unit tests.
-
-
 **********Background and project description**********
 PostScript is a programming language designed primarily for describing the layout of printed pages.
 

@@ -1,7 +1,23 @@
 # Pyscript
 
 CS 372 Spring 2019\
-Software Construction
+Software Construction\
+George Meier\
+Jake Herrmann\
+Laura Lundell
+
+## Usage
+
+To create and export a shape, simply construct the shape and call its
+`export_postscript` method:
+
+    from pyscript import Circle, Point
+
+    circle = Circle(50)
+    circle.export_postscript(center=Point(100, 100), filename="circle.ps")
+
+See [pyscript/__init__.py](pyscript/__init__.py) for a complete list of public
+classes and functions.
 
 ## Tests
 
