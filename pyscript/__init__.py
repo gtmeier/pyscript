@@ -17,3 +17,11 @@ from .layered    import LayeredShapes
 # basic     = polygon | RECTANGLE | SPACER | CIRCLE
 # polygon   = POLYGON | SQUARE | TRIANGLE
 # compound  = ROTATED | SCALED | LAYERED | VERTICAL | HORIZONTAL
+
+
+def export_multiple_shapes(*shape_center_pairs, filename="shapes.ps"):
+    code = "\n".join(
+        shape._get_postscript(center) for shape, center in shape_center_pairs
+    )
+    with open(filename, "w+") as output_file:
+        output_file.write(code)

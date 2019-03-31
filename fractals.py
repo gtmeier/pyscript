@@ -8,7 +8,8 @@ from pyscript import (
     HorizontalShapes,
     VerticalShapes,
     Spacer,
-    Point
+    Point,
+    export_multiple_shapes
 )
 
 # http://jwilson.coe.uga.edu/emat6680/parsons/mvp6690/essay1/sierpinski.html
@@ -28,14 +29,6 @@ from pyscript import (
 
 # left triangle's center: original center - smaller triangle's height + smaller
 # triangle's width
-
-
-def concat(*shape_centers):
-    code = '\n'.join(
-        shape._get_postscript(center) for shape, center in shape_centers
-    )
-    with open('fractals.ps', 'w+') as f:
-        f.write(code)
 
 
 def inverted_triangle(side_len, center, rec):
@@ -82,7 +75,7 @@ if __name__ == '__main__':
     )
 
     invt = inverted_triangle(100, med_triangle_center, 3)
-    concat((big_triangle, big_triangle_center), *invt)
+    export_multiple_shapes((big_triangle, big_triangle_center), *invt)
 
     # big_triangle = Triangle(200)
     # big_triangle_center = Point(250, 250)
