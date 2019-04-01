@@ -42,8 +42,8 @@ Then, for each type of shape, we save examples of known-good PostScript code
 and write tests to create and export shapes and then compare the results with
 the saved PostScript files in order to make sure the output is still exactly
 the same. We are still in the process of adding these tests for every single
-type of shape, but we have also added a test (TODO: link to file) that
-incorporates every type of shape into one large composite shape.
+type of shape, but we have also added [a test case that incorporates every type
+of shape into one large composite shape](tests/test_all_shapes.py).
 
 We chose this strategy because it would have been very difficult and
 error-prone to manually create PostScript representations of all the shapes
