@@ -1,5 +1,3 @@
-import unittest
-
 from pyscript import (
     Point, Rectangle, Spacer, Square, Circle, HorizontalShapes, VerticalShapes,
     LayeredShapes, ScaledShape, RotatedShape, Triangle, Polygon
@@ -8,38 +6,37 @@ from pyscript import (
 from shape_test_case import ShapeTestCase
 
 
-class AllShapesTestCase(unittest.TestCase):
+class AllShapesTestCase(ShapeTestCase):
 
-    rectangle = Rectangle(100, 60)
-    spacer = Spacer(40, 40)
-    square = Square(80)
-    base_circle = Circle(80)
-    polygon = Polygon(5, 20)
-    triangle = Triangle(20)
-    vertical_shapes = VerticalShapes(
-        base_circle,
+    _base_circle = Circle(80)
+    _rectangle = Rectangle(100, 60)
+    _spacer = Spacer(40, 40)
+    _square = Square(80)
+    _vertical_shapes = VerticalShapes(
+        _base_circle,
         LayeredShapes(
-            ScaledShape(base_circle, 0.75, 0.75),
-            polygon
+            ScaledShape(_base_circle, 0.75, 0.75), Polygon(5, 20)
         ),
         LayeredShapes(
-            ScaledShape(base_circle, 0.5, 0.5),
-            RotatedShape(triangle, 180)
+            ScaledShape(_base_circle, 0.5, 0.5),
+            RotatedShape(Triangle(20), 180)
         )
     )
-
-    shape = HorizontalShapes(
-        rectangle,
-        spacer,
-        square,
-        vertical_shapes,
-        square,
-        spacer,
-        rectangle
+    _shape = HorizontalShapes(
+        _rectangle,
+        _spacer,
+        _square,
+        _vertical_shapes,
+        _square,
+        _spacer,
+        _rectangle
     )
 
     def test_get_width(self):
-        self.assertEqual(self.shape._get_width(), 600)
+        self.assertEqual(self._shape._get_width(), 600)
 
     def test_get_height(self):
-        self.assertEqual(self.shape._get_height(), 360)
+        self.assertEqual(self._shape._get_height(), 360)
+
+    def test_export_postscript_all_shapes(self):
+        self._test_export_postscript(self._shape, Point(305, 300))
