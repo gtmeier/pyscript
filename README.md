@@ -30,13 +30,15 @@ compound = ROTATED | SCALED | LAYERED | VERTICAL | HORIZONTAL
 
 ## Getting started
 
+Make sure you have Python >=3.6 by running `python3 --version`.
+
 If you have `pip` and `setuptools` installed, you can run `pip3 install .
 --user` from the project's root directory in order to install `pyscript` as a
 Python package.
 
-Otherwise, just make sure that you're in the project's root directory when you
-run any scripts that import `pyscript`, so that Python can find the `pyscript/`
-directory. Also run `python3 --version` to make sure you have Python >=3.6.
+Otherwise, any Python source files that use `pyscript` will need to be located
+in the project's root directory so that Python can find the `pyscript/`
+directory.
 
 ## Usage
 
