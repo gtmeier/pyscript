@@ -28,6 +28,16 @@ polygon  = POLYGON | SQUARE | TRIANGLE
 compound = ROTATED | SCALED | LAYERED | VERTICAL | HORIZONTAL
 ```
 
+## Getting started
+
+If you have `pip` and `setuptools` installed, you can run `pip3 install .
+--user` from the project's root directory in order to install `pyscript` as a
+Python package.
+
+Otherwise, just make sure that you're in the project's root directory when you
+run any scripts that import `pyscript`, so that Python can find the `pyscript/`
+directory. Also run `python3 --version` to make sure you have Python >=3.6.
+
 ## Usage
 
 To create and export a shape, simply construct the shape and call its
