@@ -24,26 +24,26 @@ class SquareTestCase(unittest.TestCase):
         square = Square(1)
         self.assertEqual(square._num_sides, 4)
 
-    def test_width(self):
+    def test_width_1(self):
         square = Square(1)
         self.assertEqual(square._get_width(), 1)
 
-    def test_width(self):
+    def test_width_23(self):
         square = Square(23)
         self.assertEqual(square._get_width(), 23)
 
-    def test_width(self):
+    def test_width_59(self):
         square = Square(59)
         self.assertEqual(square._get_width(), 59)
 
-    def test_height(self):
+    def test_height_31(self):
         square = Square(31)
         self.assertEqual(square._get_height(), 31)
 
-    def test_height(self):
+    def test_height_79(self):
         square = Square(79)
         self.assertEqual(square._get_height(), 79)
 
-    def test_height(self):
+    def test_height_131(self):
         square = Square(131)
         self.assertEqual(square._get_height(), 131)
