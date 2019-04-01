@@ -34,8 +34,7 @@ def sierpinski_triangle(side_len, center, recursion_depth):
     inner_triangles = _inverted_triangle_pattern(
         inner_triangle_side_len, inner_triangle_center, recursion_depth
     )
-
-    return _export_multiple_shapes((outer_triangle, center), *inner_triangles)
+    return _export_multiple_shapes(*inner_triangles)
 
 
 def _inverted_triangle_pattern(side_len, center, recursion_depth):
