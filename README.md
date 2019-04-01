@@ -18,8 +18,11 @@ circle = Circle(50)
 circle.export_postscript(center=Point(100, 100), filename="circle.ps")
 ```
 
-See [`pyscript/__init__.py`](pyscript/__init__.py) for a complete list of public
-classes and functions.
+See the script [`weird-snowperson.py`](weird-snowperson.py) for an example that
+incorporates every single type of shape. Run it with `./weird-snowperson.py`.
+
+See [`pyscript/__init__.py`](pyscript/__init__.py) for a complete list of
+public classes and functions.
 
 ## Tests
 
