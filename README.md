@@ -1,10 +1,17 @@
-# Pyscript
+# PyScript
 
 CS 372 Spring 2019\
 Software Construction\
 George Meier\
 Jake Herrmann\
 Laura Lundell
+
+## Introduction
+
+PostScript is a programming language designed primarily for describing the
+layout of printed pages. We implemented a Python library called PyScript, short
+for "Python to PostScript." PyScript allows users to specify drawings at a high
+level of abstraction and output the drawings as PostScript.
 
 ## Usage
 
