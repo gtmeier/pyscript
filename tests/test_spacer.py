@@ -1,6 +1,6 @@
 import unittest
 
-from pyscript import Spacer, Point
+from pyscript import Spacer
 
 
 # TODO: tests for export_postscript
