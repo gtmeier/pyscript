@@ -59,3 +59,24 @@ the process of implementing `_get_postscript`, our understanding of the problem
 changed and we learned more about PostScript and graphical manipulation of
 shapes in general. So we are glad we waited to start writing tests until after
 we were fairly confident in the quality of our design and implementation.
+
+## Reflection
+
+What worked:
+
+- The group had excellent communication.
+- Constant refactoring kept the project readable and maintainable.
+- Creating a separate source file for each shape allowed us to work in
+  parallel.
+- Git allowed us to track down when and where bugs were introduced.
+
+What didn't work:
+
+- We wrote `Polygon` correctly but later spent a few hours attempting to center
+  odd-sided polygons about the given center point, before realizing that we had
+  already met the requirement of centering the bounding box. We should have
+  more carefully read and understood the assignment description before
+  implementing `Polygon`.
+- Exporting only a single shape at a time was easy to implement but made
+  drawing non-trivial shapes difficult. This is a problem that needs to be
+  addressed at a later time. (TODO: move to critique section)
