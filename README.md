@@ -22,10 +22,10 @@ classes for basic and compound shapes (for example, both `Rectangle` and
 `LayeredShapes` inherit directly from `Shape`).
 
 ```
-shape     = basic | compound
-basic     = polygon | RECTANGLE | SPACER | CIRCLE
-polygon   = POLYGON | SQUARE | TRIANGLE
-compound  = ROTATED | SCALED | LAYERED | VERTICAL | HORIZONTAL
+shape    = basic | compound
+basic    = polygon | RECTANGLE | SPACER | CIRCLE
+polygon  = POLYGON | SQUARE | TRIANGLE
+compound = ROTATED | SCALED | LAYERED | VERTICAL | HORIZONTAL
 ```
 
 ## Usage
