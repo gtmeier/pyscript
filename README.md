@@ -46,6 +46,17 @@ incorporates every single type of shape. Run it with `./weird-snowperson.py`.
 See [`pyscript/__init__.py`](pyscript/__init__.py) for a complete list of
 public classes and functions.
 
+## Fractals
+
+We decided to use PyScript to implement fractals. So far, we have only
+implemented Sierpinski's Triangle. Run it with `./sierpinski.py`.
+
+The resulting `sierpinski.ps` PostScript file is several thousand lines long
+because the recursion is implemented in Python and the PostScript for each
+component triangle is simply combined into one enormous file. In order to
+reduce the filesize for higher recursion depths, we should actually generate
+PostScript code to handle the recursion.
+
 ## Tests
 
 Run the tests with `./run-tests`. Tests should always be run from the project's
