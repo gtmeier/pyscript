@@ -3,6 +3,9 @@ import unittest
 from pyscript import Triangle
 
 
+# TODO: tests for _get_height, export_postscript
+
+
 class TriangleTestCase(unittest.TestCase):
     def test_side_length_0(self):
         triangle = Triangle(0)
@@ -31,5 +34,3 @@ class TriangleTestCase(unittest.TestCase):
     def test_get_width_71(self):
         triangle = Triangle(71)
         self.assertEqual(triangle._get_width(), 71)
-
-    # TODO tests for _get_height

@@ -129,6 +129,3 @@ What didn't work:
   already met the requirement of centering the bounding box. We should have
   more carefully read and understood the assignment description before
   implementing `Polygon`.
-- Exporting only a single shape at a time was easy to implement but made
-  drawing non-trivial shapes difficult. This is a problem that needs to be
-  addressed at a later time. (TODO: move to critique section)

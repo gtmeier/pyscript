@@ -1,9 +1,6 @@
 from . import Shape, Point
 
 
-# TODO: tests for export_postscript
-
-
 class ScaledShape(Shape):
 
     def __init__(self, shape, scale_factor_x, scale_factor_y):

@@ -3,6 +3,9 @@ from pyscript import ScaledShape, Rectangle
 from shape_test_case import ShapeTestCase
 
 
+# TODO: tests for export_postscript
+
+
 class ScaledShapeTestCase(ShapeTestCase):
 
     def test_get_width_0(self):

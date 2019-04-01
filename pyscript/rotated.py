@@ -1,9 +1,6 @@
 from . import Shape, Point
 
 
-# TODO: tests for export_postscript
-
-
 class RotatedShape(Shape):
 
     def __init__(self, shape, rotation_angle):

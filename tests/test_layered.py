@@ -3,6 +3,9 @@ from pyscript import LayeredShapes, Circle, Rectangle
 from shape_test_case import ShapeTestCase
 
 
+# TODO: tests for export_postscript
+
+
 class LayeredShapesTestCase(ShapeTestCase):
 
     def test_get_width_no_shapes(self):

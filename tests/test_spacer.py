@@ -3,6 +3,9 @@ import unittest
 from pyscript import Spacer, Point
 
 
+# TODO: tests for export_postscript
+
+
 class SpacerTestCase(unittest.TestCase):
 
     def test_get_width_0(self):

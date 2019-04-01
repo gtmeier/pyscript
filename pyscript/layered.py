@@ -1,9 +1,6 @@
 from . import Shape
 
 
-# TODO: tests for export_postscript
-
-
 class LayeredShapes(Shape):
 
     def __init__(self, *shapes):

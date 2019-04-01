@@ -19,7 +19,6 @@ class Shape(ABC):
 
         return postscript_code + "showpage\n"
 
-    # TODO: check method signature is consistent w/ all subclasses
     @abstractmethod
     def _get_postscript(self, center):
         pass

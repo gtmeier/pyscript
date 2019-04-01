@@ -3,6 +3,9 @@ from pyscript import RotatedShape, Rectangle
 from shape_test_case import ShapeTestCase
 
 
+# TODO: tests for export_postscript
+
+
 class RotatedShapeTestCase(ShapeTestCase):
 
     def test_create_90(self):

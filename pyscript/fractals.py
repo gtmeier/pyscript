@@ -1,7 +1,8 @@
 from . import Triangle, RotatedShape, Point
 
 
-# TODO: use a Fractals base class
+# TODO: replace the functions defined below with a SierpinskiTriangle class
+# derived from Shape
 
 
 # http://jwilson.coe.uga.edu/emat6680/parsons/mvp6690/essay1/sierpinski.html

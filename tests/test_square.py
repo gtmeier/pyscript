@@ -3,6 +3,9 @@ import unittest
 from pyscript import Square
 
 
+# TODO: tests for export_postscript
+
+
 class SquareTestCase(unittest.TestCase):
 
     def test_side_length_0(self):
@@ -44,17 +47,3 @@ class SquareTestCase(unittest.TestCase):
     def test_height(self):
         square = Square(131)
         self.assertEqual(square._get_height(), 131)
-
-    # FIXME
-    # def test_get_postscript(self):
-    #     code = Square(40)._get_postscript(Point(100, 100))
-    #     self.assertEqual(
-    #         code,
-    #         "newpath\n"
-    #         "80.0 80.0 moveto\n"
-    #         "40 0 rlineto\n"
-    #         "0 40 rlineto\n"
-    #         "-40 0 rlineto\n"
-    #         "closepath\n"
-    #         "stroke\n"
-    #     )

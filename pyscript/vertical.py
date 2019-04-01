@@ -1,9 +1,6 @@
 from . import Shape, Point
 
 
-# TODO: tests for export_postscript
-
-
 class VerticalShapes(Shape):
 
     def __init__(self, *shapes):

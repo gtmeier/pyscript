@@ -2,7 +2,6 @@ from . import Shape
 
 
 # TODO: maybe subclass from Rectangle
-# TODO: tests
 
 
 class Spacer(Shape):
