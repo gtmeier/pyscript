@@ -86,7 +86,21 @@ changed and we learned more about PostScript and graphical manipulation of
 shapes in general. So we are glad we waited to start writing tests until after
 we were fairly confident in the quality of our design and implementation.
 
-## Reflection
+## Critique of the shape language
+
+Our main criticism is of using `VerticalShapes`, `HorizontalShapes`, and
+`Spacer` for positioning other shapes. This has proven to be quite limiting.
+For example, Jake's first attempt to implement Sierpinski's Triangle used this
+method, until he realized it wouldn't be feasible to implement arbitrary
+recursion depth without explicitly specifying each component shape's center
+point. It seems much more flexible and convenient to construct a drawing by
+simply creating any number of shapes centered at arbitrary points.
+
+Of course, there's nothing about the language that prevents us from
+implementing this method of creating drawings. It's just that we expected the
+default abstractions to be more powerful than they turned out to be.
+
+## Other reflection
 
 What worked:
 
