@@ -13,6 +13,21 @@ layout of printed pages. We implemented a Python library called PyScript, short
 for "Python to PostScript." PyScript allows users to specify drawings at a high
 level of abstraction and output the drawings as PostScript.
 
+## Shape grammar
+
+This is the grammar for the shape language. Lowercase words are nonterminals
+and uppercase words are terminals. The grammar corresponds fairly closely to
+the actual `Shape` class hierarchy, except that there are no separate base
+classes for basic and compound shapes (for example, both `Rectangle` and
+`LayeredShapes` inherit directly from `Shape`).
+
+```
+shape     = basic | compound
+basic     = polygon | RECTANGLE | SPACER | CIRCLE
+polygon   = POLYGON | SQUARE | TRIANGLE
+compound  = ROTATED | SCALED | LAYERED | VERTICAL | HORIZONTAL
+```
+
 ## Usage
 
 To create and export a shape, simply construct the shape and call its

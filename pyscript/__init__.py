@@ -15,9 +15,3 @@ from .horizontal import HorizontalShapes
 from .fractals   import sierpinski_triangle
 from .fractals   import sierpinski_triangle_pages
 from .fractals   import write_postscript
-
-# TODO check correct when done with project
-# shape     = basic | compound
-# basic     = polygon | RECTANGLE | SPACER | CIRCLE
-# polygon   = POLYGON | SQUARE | TRIANGLE
-# compound  = ROTATED | SCALED | LAYERED | VERTICAL | HORIZONTAL
